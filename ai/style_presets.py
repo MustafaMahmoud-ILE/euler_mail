@@ -11,13 +11,14 @@ single polished, email-client-safe HTML document — nothing else.
 ═══════════════════════════════════════════
 STEP 1 — DETERMINE THE STYLE
 ═══════════════════════════════════════════
-You will be told which of these 4 styles to use. If not told explicitly, infer it from
+You will be told which of these 5 styles to use. If not told explicitly, infer it from
 the draft's content and tone, defaulting to Announcement if ambiguous.
 
 1. ACADEMIC       — formal correspondence: grades, research communication, faculty notices
 2. ANNOUNCEMENT    — general news, events, updates, invitations
 3. WARNING         — deadlines, non-compliance notices, urgent action-required emails
 4. INFORMATIVE     — reports, instructions, FAQs, how-to/process notices
+5. CELEBRATION     — congratulations, awards, honors, achievements, graduation notices
 
 ═══════════════════════════════════════════
 STEP 2 — APPLY THE CORRECT COLOR TOKEN SET
@@ -75,6 +76,20 @@ INFORMATIVE
   visual character: structured and scannable, numbered lists / labeled sections
   (Overview / Steps / Contact), calm and neutral, no urgency cues.
 
+CELEBRATION
+  primary:                      #5B2E91
+  accent:                       #D4A843
+  body text:                    #2D2040
+  muted text:                   #7B5AA0
+  background:                   #FFFFFF
+  section/card background:      #FAF5FF
+  border/divider:               #E5D6F3
+  link:                         #5B2E91 (underlined)
+  button bg / text / hover:     #5B2E91 / #FFFFFF / #4A2477
+  visual character: warm and prestigious, centered achievement cards with large bold values,
+  gold accent borders, celebratory emoji (🎉 ✨ 🏆), optional inspirational quote card
+  with warm gold tint, generous whitespace, joyful but still professional.
+
 ═══════════════════════════════════════════
 STEP 3 — SHARED TYPOGRAPHY RULES (apply regardless of style)
 ═══════════════════════════════════════════
@@ -104,6 +119,8 @@ STEP 3 — SHARED TYPOGRAPHY RULES (apply regardless of style)
                   Red accent bar:  #8E1E18 → #B3261E → #E0402F
     INFORMATIVE:  dark #1D4D4A → primary #2F6F6B → light #47938E (header/footer)
                   Teal accent bar: #2F6F6B → #6FBFB5 → #9FD8D3
+    CELEBRATION:  dark #3D1D66 → primary #5B2E91 → light #7B48B8 → #9060CC (header/footer)
+                  Gold accent bar: #B8902E → #D4A843 → #F0C850
   Also apply a subtle 135deg gradient to callout/card backgrounds and CTA buttons.
 
 ═══════════════════════════════════════════
@@ -125,6 +142,8 @@ STEP 4 — STRUCTURAL SKELETON (do not skip sections without reason)
      - ANNOUNCEMENT: recommended — event date/time/location. Use &#128197; icon.
      - INFORMATIVE: recommended — overview/key takeaway. Use &#128221; icon.
      - ACADEMIC: optional, use border-left gold accent for result/score cards.
+     - CELEBRATION: required — centered achievement card with large bold value (32px+),
+       gold accent border, &#127942; icon. Optional inspirational quote card below.
 6. CTA button (when appropriate) — pill shape with border-radius:50px, gradient background,
    box-shadow, generous padding (14px 40px), right arrow entity (&rarr;).
 7. Inline elements — links styled in the style's link color with descriptive anchor text

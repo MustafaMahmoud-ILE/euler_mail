@@ -129,6 +129,23 @@ STYLE_PALETTES = {
         "alert_border": "#CFE7E4",
         "tone_keyword": "Neutral, structured",
     },
+    "Celebration": {
+        "label": "🎉 Celebration",
+        "description": "Congratulations, awards, honors\nand achievements",
+        "primary": "#5B2E91",
+        "accent": "#D4A843",
+        "body_text": "#2D2040",
+        "muted_text": "#7B5AA0",
+        "background": "#FFFFFF",
+        "section_bg": "#FAF5FF",
+        "border": "#E5D6F3",
+        "link": "#5B2E91",
+        "button_bg": "#5B2E91",
+        "button_text": "#FFFFFF",
+        "alert_bg": "#FAF5FF",
+        "alert_border": "#E5D6F3",
+        "tone_keyword": "Warm, prestigious",
+    },
 }
 
 STYLE_NAMES = list(STYLE_PALETTES.keys())
