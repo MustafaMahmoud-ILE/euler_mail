@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Action Required</title>
+<style>
+  body { margin:0; padding:0; background-color:#F4F6F9; }
+  table { border-collapse: collapse; }
+  img { border:0; line-height:100%; outline:none; text-decoration:none; }
+  @media only screen and (max-width:600px){
+    .content { padding:20px !important; }
+    .header-pad { padding:18px !important; }
+  }
+</style>
+</head>
+<body style="margin:0; padding:0; background-color:#F4F6F9; font-family: Arial, Helvetica, 'Segoe UI', sans-serif; font-size:16px; line-height:1.6;">
+
+  <div style="display:none; max-height:0; overflow:hidden; opacity:0;">
+    Action required before the deadline — please review immediately.
+  </div>
+
+  <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="background-color:#F4F6F9;">
+    <tr>
+      <td align="center" style="padding:24px 12px;">
+        <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="max-width:600px; background-color:#FFFFFF;">
+
+          <!-- Top accent bar -->
+          <tr>
+            <td style="height:6px; background-color:#B3261E; font-size:0; line-height:0;">&nbsp;</td>
+          </tr>
+
+          <!-- Header -->
+          <tr>
+            <td class="header-pad" style="padding:24px 32px 8px 32px; text-align:left;">
+              <img src="cid:euler_logo" alt="Egypt University of Informatics" width="100" style="display:inline-block; vertical-align:middle;">
+              <span style="display:inline-block; margin-left:12px; color:#B3261E; font-size:12px; letter-spacing:1.5px; text-transform:uppercase; font-weight:bold; vertical-align:middle;">
+                Action Required
+              </span>
+            </td>
+          </tr>
+
+          <!-- Body -->
+          <tr>
+            <td class="content" style="padding:12px 32px 8px 32px;">
+              <h1 style="color:#B3261E; font-size:20px; margin:0 0 16px 0;">Submission Deadline Approaching</h1>
+              <p style="color:#2B2B2B; margin:0 0 16px 0;">Dear {fname},</p>
+              <p style="color:#2B2B2B; margin:0 0 16px 0;">
+                This is a reminder that your outstanding requirement has not yet been submitted. Please complete the required action before the deadline to avoid any impact on your record.
+              </p>
+            </td>
+          </tr>
+
+          <!-- Alert callout -->
+          <tr>
+            <td class="content" style="padding:8px 32px 24px 32px;">
+              <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="background-color:#FCEEED; border:1px solid #EFC9C6; border-radius:6px;">
+                <tr>
+                  <td style="padding:20px 24px;">
+                    <div style="color:#B3261E; font-size:12px; text-transform:uppercase; letter-spacing:1px; font-weight:bold; margin-bottom:10px;">
+                      Deadline
+                    </div>
+                    <div style="color:#2B2B2B; font-size:18px; font-weight:bold; margin-bottom:8px;">{Deadline_Date}</div>
+                    <div style="color:#7A2420; font-size:14px;">
+                      Failure to act by this date may result in: {Consequence}
+                    </div>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+          <!-- CTA button -->
+          <tr>
+            <td class="content" align="center" style="padding:0 32px 28px 32px;">
+              <table role="presentation" cellspacing="0" cellpadding="0">
+                <tr>
+                  <td style="background-color:#B3261E; border-radius:6px;">
+                    <a href="{ACTION_LINK}" style="display:inline-block; padding:12px 32px; color:#FFFFFF; text-decoration:none; font-weight:bold; font-size:15px;">
+                      Take Action Now
+                    </a>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+          <!-- Signature -->
+          <tr>
+            <td class="content" style="padding:8px 32px 28px 32px; border-top:1px solid #E5E5E5;">
+              <p style="color:#2B2B2B; margin:20px 0 4px 0;">Regards,</p>
+              <p style="color:#B3261E; font-weight:bold; margin:0 0 2px 0;">Mustafa Mahmoud</p>
+              <p style="color:#7A7A7A; margin:0; font-size:14px;">Mathematician &amp; Teaching Assistant</p>
+              <p style="color:#7A7A7A; margin:0; font-size:14px;">Faculty of Engineering</p>
+              <p style="color:#7A7A7A; margin:0; font-size:14px;">Egypt University of Informatics</p>
+            </td>
+          </tr>
+
+          <!-- Footer -->
+          <tr>
+            <td style="padding:18px 24px; text-align:center; border-top:1px solid #E5E5E5;">
+              <p style="color:#7A7A7A; font-size:12px; margin:0;">Egypt University of Informatics — This Mail was sent to you using Euler Mail</p>
+            </td>
+          </tr>
+
+        </table>
+      </td>
+    </tr>
+  </table>
+
+</body>
+</html>
