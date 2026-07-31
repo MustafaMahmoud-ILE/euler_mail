@@ -5,71 +5,76 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>EUI Announcement</title>
 <style>
-  body { margin:0; padding:0; background-color:#F4F6F9; }
+  body { margin:0; padding:0; background-color:#EDF1F7; }
   table { border-collapse: collapse; }
   img { border:0; line-height:100%; outline:none; text-decoration:none; }
   @media only screen and (max-width:600px){
-    .content { padding:20px !important; }
-    .header-pad { padding:20px !important; }
-    .stat-cell { display:block !important; width:100% !important; padding:8px 0 !important; }
+    .content { padding:18px !important; }
+    .header-pad { padding:24px 18px !important; }
+    .stat-cell { display:block !important; width:100% !important; padding:10px 0 !important; }
+    .logo-img { width:80px !important; }
+    .cta-btn { padding:14px 32px !important; }
   }
 </style>
 </head>
-<body style="margin:0; padding:0; background-color:#F4F6F9; font-family: Arial, Helvetica, 'Segoe UI', sans-serif; font-size:16px; line-height:1.6;">
+<body style="margin:0; padding:0; background-color:#EDF1F7; font-family: Arial, Helvetica, 'Segoe UI', sans-serif; font-size:16px; line-height:1.6;">
 
   <div style="display:none; max-height:0; overflow:hidden; opacity:0;">
     [AI_GENERATED_PREHEADER_SUMMARY]
   </div>
 
-  <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="background-color:#F4F6F9;">
+  <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="background-color:#EDF1F7;">
     <tr>
-      <td align="center" style="padding:24px 12px;">
-        <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="max-width:600px; background-color:#FFFFFF; border-radius:10px; overflow:hidden; box-shadow:0 2px 8px rgba(38,49,63,0.08);">
+      <td align="center" style="padding:32px 12px;">
+        <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="max-width:600px; background-color:#FFFFFF; border-radius:12px; overflow:hidden; box-shadow:0 4px 20px rgba(46,94,170,0.08), 0 1px 4px rgba(46,94,170,0.04);">
 
-          <!-- Header with gradient -->
+          <!-- Header with vibrant blue gradient -->
           <tr>
-            <td class="header-pad" style="background-color:#2E5EAA; background-image:linear-gradient(135deg, #1E3F7A 0%, #2E5EAA 45%, #4A84D4 100%); padding:32px 24px; text-align:center;">
-              <img src="cid:euler_logo" alt="Egypt University of Informatics" width="120" style="display:block; margin:0 auto 14px auto;">
-              <div style="color:#DCE8FB; font-size:12px; letter-spacing:2px; text-transform:uppercase; font-weight:bold;">
+            <td class="header-pad" style="background-color:#2E5EAA; background-image:linear-gradient(135deg, #1A3B78 0%, #2E5EAA 40%, #4A84D4 80%, #6BA0E8 100%); padding:40px 28px 32px 28px; text-align:center;">
+              <img src="cid:euler_logo" alt="Egypt University of Informatics" class="logo-img" width="100" style="display:block; margin:0 auto 16px auto;">
+              <div style="color:#B8D4FA; font-size:11px; letter-spacing:3px; text-transform:uppercase; font-weight:700; margin-bottom:6px;">
+                Egypt University of Informatics
+              </div>
+              <div style="width:40px; height:2px; background-color:#8BBCFF; background-image:linear-gradient(90deg, #5B9BF2, #B8D4FA); margin:0 auto 12px auto; border-radius:2px;"></div>
+              <div style="color:#FFFFFF; font-size:18px; font-weight:700; letter-spacing:0.3px;">
                 Annual Science Fair Registration
               </div>
             </td>
           </tr>
 
-          <!-- Accent gradient rule -->
+          <!-- Accent bar -->
           <tr>
-            <td style="height:4px; background-color:#5B9BF2; background-image:linear-gradient(90deg, #2E5EAA 0%, #5B9BF2 50%, #8BBCFF 100%); font-size:0; line-height:0;">&nbsp;</td>
+            <td style="height:4px; background-color:#5B9BF2; background-image:linear-gradient(90deg, #2E5EAA 0%, #5B9BF2 40%, #8BBCFF 75%, #5B9BF2 100%); font-size:0; line-height:0;">&nbsp;</td>
           </tr>
 
           <!-- Body -->
           <tr>
-            <td class="content" style="padding:32px 32px 8px 32px;">
-              <h1 style="color:#26313F; font-size:21px; margin:0 0 16px 0;">You're Invited: AI &amp; Data Science Workshop</h1>
-              <p style="color:#26313F; margin:0 0 16px 0;">Dear {fname},</p>
-              <p style="color:#26313F; margin:0 0 16px 0;">
+            <td class="content" style="padding:32px 36px 8px 36px;">
+              <p style="color:#26313F; margin:0 0 18px 0; font-size:16px;">Dear {fname},</p>
+              <p style="color:#26313F; margin:0 0 18px 0; font-size:15px; line-height:1.65;">
                 We're excited to invite you to an upcoming workshop on applied machine learning, hosted by the Faculty of Engineering. Seats are limited, so early registration is encouraged.
               </p>
             </td>
           </tr>
 
-          <!-- Event details callout with gradient background -->
+          <!-- Event details callout — elevated card -->
           <tr>
-            <td class="content" style="padding:8px 32px 24px 32px;">
-              <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="background-color:#EAF1FB; background-image:linear-gradient(135deg, #EAF1FB 0%, #D8EAFC 100%); border:1px solid #CFE0F5; border-radius:8px;">
+            <td class="content" style="padding:8px 36px 24px 36px;">
+              <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="background-color:#EAF1FB; background-image:linear-gradient(145deg, #F0F5FC 0%, #E0ECFA 100%); border:1px solid #CFE0F5; border-radius:10px; border-left:4px solid #5B9BF2;">
                 <tr>
-                  <td style="padding:20px 24px;">
-                    <div style="color:#2E5EAA; font-size:12px; text-transform:uppercase; letter-spacing:1px; font-weight:bold; margin-bottom:12px;">
-                      Event Details
+                  <td style="padding:24px 28px;">
+                    <div style="color:#2E5EAA; font-size:11px; text-transform:uppercase; letter-spacing:2px; font-weight:700; margin-bottom:16px;">
+                      &#128197; Event Details
                     </div>
                     <table role="presentation" width="100%" cellspacing="0" cellpadding="0">
                       <tr>
-                        <td class="stat-cell" width="50%" style="padding:6px 0; vertical-align:top;">
-                          <div style="color:#5F6B7A; font-size:13px;">Date &amp; Time</div>
-                          <div style="color:#26313F; font-size:16px; font-weight:bold;">{Date}, {Time}</div>
+                        <td class="stat-cell" width="50%" style="padding:8px 0; vertical-align:top;">
+                          <div style="color:#5F6B7A; font-size:11px; text-transform:uppercase; letter-spacing:0.5px; margin-bottom:4px;">Date &amp; Time</div>
+                          <div style="color:#1A3B78; font-size:17px; font-weight:700;">{Date}, {Time}</div>
                         </td>
-                        <td class="stat-cell" width="50%" style="padding:6px 0; vertical-align:top;">
-                          <div style="color:#5F6B7A; font-size:13px;">Location</div>
-                          <div style="color:#26313F; font-size:16px; font-weight:bold;">{Location}</div>
+                        <td class="stat-cell" width="50%" style="padding:8px 0; vertical-align:top;">
+                          <div style="color:#5F6B7A; font-size:11px; text-transform:uppercase; letter-spacing:0.5px; margin-bottom:4px;">Location</div>
+                          <div style="color:#1A3B78; font-size:17px; font-weight:700;">{Location}</div>
                         </td>
                       </tr>
                     </table>
@@ -79,14 +84,14 @@
             </td>
           </tr>
 
-          <!-- CTA button with gradient -->
+          <!-- CTA button — pill shape with gradient -->
           <tr>
-            <td class="content" align="center" style="padding:0 32px 28px 32px;">
+            <td class="content" align="center" style="padding:4px 36px 32px 36px;">
               <table role="presentation" cellspacing="0" cellpadding="0">
                 <tr>
-                  <td style="background-color:#2E5EAA; background-image:linear-gradient(135deg, #25498A 0%, #2E5EAA 100%); border-radius:6px;">
-                    <a href="{RSVP_LINK}" style="display:inline-block; padding:13px 30px; color:#FFFFFF; text-decoration:none; font-weight:bold; font-size:15px;">
-                      RSVP Now
+                  <td style="background-color:#2E5EAA; background-image:linear-gradient(135deg, #1E4990 0%, #2E5EAA 50%, #4A84D4 100%); border-radius:50px; box-shadow:0 3px 12px rgba(46,94,170,0.25);">
+                    <a href="{RSVP_LINK}" class="cta-btn" style="display:inline-block; padding:14px 40px; color:#FFFFFF; text-decoration:none; font-weight:700; font-size:15px; letter-spacing:0.3px;">
+                      RSVP Now &rarr;
                     </a>
                   </td>
                 </tr>
@@ -94,21 +99,29 @@
             </td>
           </tr>
 
+          <!-- Divider -->
+          <tr>
+            <td style="padding:0 36px;">
+              <div style="border-top:1px solid #E8EDF5; margin:0;"></div>
+            </td>
+          </tr>
+
           <!-- Signature -->
           <tr>
-            <td class="content" style="padding:8px 32px 28px 32px; border-top:1px solid #EDF1F7;">
-              <p style="color:#26313F; margin:20px 0 4px 0;">Best regards,</p>
-              <p style="color:#2E5EAA; font-weight:bold; margin:0 0 2px 0;">Mustafa Mahmoud</p>
-              <p style="color:#5F6B7A; margin:0; font-size:14px;">Mathematician &amp; Teaching Assistant</p>
-              <p style="color:#5F6B7A; margin:0; font-size:14px;">Faculty of Engineering</p>
-              <p style="color:#5F6B7A; margin:0; font-size:14px;">Egypt University of Informatics</p>
+            <td class="content" style="padding:24px 36px 32px 36px;">
+              <p style="color:#26313F; margin:0 0 6px 0; font-size:15px;">Best regards,</p>
+              <p style="color:#2E5EAA; font-weight:700; margin:0 0 4px 0; font-size:16px;">Mustafa Mahmoud</p>
+              <p style="color:#5F6B7A; margin:0; font-size:13px; line-height:1.5;">Mathematician &amp; Teaching Assistant</p>
+              <p style="color:#5F6B7A; margin:0; font-size:13px; line-height:1.5;">Faculty of Engineering</p>
+              <p style="color:#5F6B7A; margin:0; font-size:13px; line-height:1.5;">Egypt University of Informatics</p>
+              <p style="color:#5F6B7A; margin:0; font-size:13px; line-height:1.5;">+(20) 112 085 7188</p>
             </td>
           </tr>
 
           <!-- Footer with gradient -->
           <tr>
-            <td style="background-color:#2E5EAA; background-image:linear-gradient(135deg, #1E3F7A 0%, #2E5EAA 60%, #4A84D4 100%); padding:20px 24px; text-align:center;">
-              <p style="color:#C8DEFA; font-size:12px; margin:0;">Egypt University of Informatics — This Mail was sent to you using Euler Mail</p>
+            <td style="background-color:#2E5EAA; background-image:linear-gradient(135deg, #1A3B78 0%, #2E5EAA 55%, #4A84D4 100%); padding:22px 28px; text-align:center;">
+              <p style="color:#A3C4F0; font-size:11px; margin:0; letter-spacing:0.3px;">Egypt University of Informatics &mdash; This Mail was sent to you using Euler Mail</p>
             </td>
           </tr>
 

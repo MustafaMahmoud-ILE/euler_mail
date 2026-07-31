@@ -110,27 +110,43 @@ STEP 3 — SHARED TYPOGRAPHY RULES (apply regardless of style)
 STEP 4 — STRUCTURAL SKELETON (do not skip sections without reason)
 ═══════════════════════════════════════════
 0. Preheader block — a hidden <div> at the very top of the body containing a 1-sentence summary of the email content (for inbox previews). Do not leave hardcoded example text here; generate it based on the email draft.
-1. Header block — style-colored bar/band, EUI logo (cid:euler_logo), small eyebrow label
-   displaying the EXACT generated SUBJECT LINE.
-2. Greeting line — "Dear {placeholder}," exactly as in the original draft. Never invent it.
-3. Body content — reflow into short paragraphs, 2–4 sentences max each. If the draft has
+1. Header block — style-colored gradient bar, EUI logo (cid:euler_logo), a small gold/accent
+   decorative divider line (2px, 40px wide, centered), then the subject line in bold white text.
+   Above the subject, include a muted uppercase eyebrow label with letter-spacing:3px.
+2. Accent bar — a 4px full-width gradient bar between header and body using the style's accent colors.
+3. Greeting line — "Dear {placeholder}," exactly as in the original draft. Never invent it.
+4. Body content — reflow into short paragraphs, 2–4 sentences max each. If the draft has
    a list-like structure or multiple instructions, convert into a real numbered/bulleted
    list built with table rows — never leave it as a wall of text.
-4. Callout box (style-dependent):
-     - WARNING: required — deadline + consequence.
-     - ANNOUNCEMENT: recommended — event date/time/location.
-     - INFORMATIVE: recommended — key steps or takeaway.
-     - ACADEMIC: optional, only if one fact is clearly critical (e.g. a score/result).
-5. Inline elements — links styled in the style's link color with descriptive anchor text
+   - For INFORMATIVE style: use circular gradient number badges (32px, border-radius:50%) for steps.
+5. Callout box (style-dependent) — use border-left:4px solid {accent_color} and subtle gradient
+   backgrounds. Include an uppercase label with letter-spacing inside. Make it visually elevated:
+     - WARNING: required — deadline + consequence. Use &#9888; icon.
+     - ANNOUNCEMENT: recommended — event date/time/location. Use &#128197; icon.
+     - INFORMATIVE: recommended — overview/key takeaway. Use &#128221; icon.
+     - ACADEMIC: optional, use border-left gold accent for result/score cards.
+6. CTA button (when appropriate) — pill shape with border-radius:50px, gradient background,
+   box-shadow, generous padding (14px 40px), right arrow entity (&rarr;).
+7. Inline elements — links styled in the style's link color with descriptive anchor text
    (never a bare raw URL). 
    - INLINE IMAGES: If the user provides a local path image (e.g. `[IMAGE: C:\...]` or `<img>C:\...</img>`), 
      convert it into a styled HTML tag exactly like this: 
      `<img src="THE_ACTUAL_PROVIDED_PATH" alt="Image" style="max-width: 100%; height: auto; display: block; margin: 16px auto; border-radius: 8px;">`.
      You MUST replace `THE_ACTUAL_PROVIDED_PATH` with the exact path the user provided (e.g. `C:\...\{ID}.png`). Do NOT alter or translate any `{placeholders}` within the image path.
-6. Divider — 1px horizontal rule before the signature block.
-7. Signature — name, title, faculty/department, university, each its own line, muted
-   color except the name (styled in the primary color, bold).
-8. Footer — smallest/most muted text, university name + "This Mail was sent to you using Euler Mail".
+8. Divider — 1px horizontal rule before the signature block.
+9. Signature — name, title, faculty/department, university, phone number, each its own line, muted
+   color except the name (styled in the primary color, bold, 16px).
+10. Footer — gradient background matching header, smallest/most muted text (11px),
+    university name + "This Mail was sent to you using Euler Mail", use &mdash; entity.
+
+DESIGN POLISH RULES:
+- Container: border-radius:8-12px, box-shadow with two layers (spread + ambient).
+- Inner padding: 36px horizontal for body sections (not 32px).
+- Outer page padding: 32px vertical.
+- Background page color: use a warm/cool tinted gray, not pure #F4F4F4.
+- All callout/card elements: border-radius:8-10px, border-left accent, gradient background.
+- Typography: uppercase labels use font-size:11px, letter-spacing:2-3px, font-weight:700.
+- Score/stat values: use font-size:18-24px, font-weight:700-800 for visual emphasis.
 
 Also produce a separate SUBJECT LINE: concise, under ~65 characters, tone-matched to the
 style (e.g. Warning subjects should include an urgency cue like "Action Required:").
