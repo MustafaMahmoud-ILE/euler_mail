@@ -43,6 +43,10 @@ class _TestSendWorker(QObject):
             subject = resolve(self._subject, self._row)
             html = resolve(self._html_body, self._row)
 
+            # Resolve absolute inline images (e.g. from [IMAGE: C:\...])
+            from euler_mail.email_engine.template_resolver import resolve_absolute_inline_images
+            html, abs_inline_images = resolve_absolute_inline_images(html)
+
             # Resolve attachments
             specs = resolve_attachment_specs(
                 self._att_patterns, self._row, self._att_folder, html
@@ -54,6 +58,8 @@ class _TestSendWorker(QObject):
                 (s["path"], s["cid"])
                 for s in specs if s["is_inline"] and s["path"] and s["exists"]
             ]
+            inline.extend(abs_inline_images)
+            
             attachments = [
                 s["path"]
                 for s in specs if not s["is_inline"] and s["path"] and s["exists"]

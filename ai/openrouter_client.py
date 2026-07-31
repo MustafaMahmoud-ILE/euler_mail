@@ -51,6 +51,7 @@ def enhance_draft(
         example_html = example_path.read_text(encoding="utf-8")
         user_message += (
             "EXPECTED OUTPUT SHAPE (Use this exactly as a structural template):\n"
+            "1. Subject: [Your generated subject here]\n"
             f"```html\n{example_html}\n```\n"
         )
 
@@ -111,35 +112,34 @@ def _parse_content(content: str) -> dict:
     lines = content.strip().split("\n")
     subject = "Euler Mail Update"
     
-    # Try to find a line starting with "Subject:" or "1. Subject:"
     html_start_idx = 0
     for i, line in enumerate(lines):
-        if line.strip().lower().startswith("subject:"):
-            subject = line.split(":", 1)[1].strip()
+        # Clean up markdown bolding and whitespace
+        clean_line = line.strip().lower().replace("**", "").replace("*", "")
+        
+        if clean_line.startswith("subject:"):
+            # Extract from original line to preserve casing
+            orig_clean = line.strip().replace("**", "").replace("*", "")
+            subject = orig_clean.split(":", 1)[1].strip()
             html_start_idx = i + 1
             break
-        elif line.strip().lower().startswith("1. subject:"):
-            subject = line.split(":", 1)[1].strip()
+        elif clean_line.startswith("1. subject:"):
+            orig_clean = line.strip().replace("**", "").replace("*", "")
+            subject = orig_clean.split(":", 1)[1].strip()
             html_start_idx = i + 1
             break
-        elif line.strip().startswith("<!DOCTYPE html>") or line.strip().startswith("<html"):
+        elif clean_line.startswith("<!doctype html>") or clean_line.startswith("<html") or clean_line.startswith("```html"):
             html_start_idx = i
             break
             
     html_body = "\n".join(lines[html_start_idx:]).strip()
     
     # Strip markdown fences if the model still added them
-    m = _FENCE_RE.search(html_body)
-    if m:
-        html_body = m.group(1).strip()
-    elif html_body.startswith("```html"):
-        html_body = html_body[7:]
-        if html_body.endswith("```"):
-            html_body = html_body[:-3]
-    elif html_body.startswith("```"):
-        html_body = html_body[3:]
-        if html_body.endswith("```"):
-            html_body = html_body[:-3]
+    import re
+    # Remove leading ``` or ```html or ```xml
+    html_body = re.sub(r"^```[a-zA-Z]*\s*\n?", "", html_body)
+    # Remove trailing ```
+    html_body = re.sub(r"\n?```\s*$", "", html_body)
             
     html_body = html_body.strip()
     

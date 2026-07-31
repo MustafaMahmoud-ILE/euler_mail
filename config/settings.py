@@ -55,8 +55,6 @@ OPENROUTER_MODELS = [
     ("openai/gpt-4o-mini (Fast — default)", "openai/gpt-4o-mini"),
     ("google/gemini-2.5-flash (Google Fast)", "google/gemini-2.5-flash"),
     ("google/gemini-2.5-flash-lite (Google Lite)", "google/gemini-2.5-flash-lite"),
-    ("google/gemini-2.5-pro (Google Premium)", "google/gemini-2.5-pro"),
-    ("openai/gpt-4o (OpenAI Premium)", "openai/gpt-4o"),
 ]
 DEFAULT_MODEL = "openai/gpt-4o-mini"
 

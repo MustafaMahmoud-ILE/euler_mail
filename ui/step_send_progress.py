@@ -208,6 +208,11 @@ class StepSendProgress(QWidget):
             try:
                 subject = resolve(self._subject, recipient.row_data)
                 html = resolve(self._html_body, recipient.row_data)
+                
+                # Resolve absolute inline images (e.g. from [IMAGE: C:\...])
+                from euler_mail.email_engine.template_resolver import resolve_absolute_inline_images
+                html, abs_inline_images = resolve_absolute_inline_images(html)
+                
                 specs = resolve_attachment_specs(
                     self._att_patterns, recipient.row_data, self._att_folder, html
                 )
@@ -217,6 +222,8 @@ class StepSendProgress(QWidget):
                     (s["path"], s["cid"])
                     for s in specs if s["is_inline"] and s["path"] and s["exists"]
                 ]
+                # Combine standard inline images with absolute path images
+                inline.extend(abs_inline_images)
                 attachments = [
                     s["path"]
                     for s in specs if not s["is_inline"] and s["path"] and s["exists"]
@@ -289,12 +296,19 @@ class StepSendProgress(QWidget):
             try:
                 subject = resolve(self._subject, recipient.row_data)
                 html = resolve(self._html_body, recipient.row_data)
+                
+                # Resolve absolute inline images (e.g. from [IMAGE: C:\...])
+                from euler_mail.email_engine.template_resolver import resolve_absolute_inline_images
+                html, abs_inline_images = resolve_absolute_inline_images(html)
+                
                 specs = resolve_attachment_specs(
                     self._att_patterns, recipient.row_data, self._att_folder, html
                 )
                 html = substitute_inline_cids(html, specs)
                 html = wrap_html(html)
                 inline = [(s["path"], s["cid"]) for s in specs if s["is_inline"] and s["path"] and s["exists"]]
+                inline.extend(abs_inline_images)
+                
                 attachments = [s["path"] for s in specs if not s["is_inline"] and s["path"] and s["exists"]]
                 return build_message(
                     to=recipient.email, subject=subject, html_body=html,

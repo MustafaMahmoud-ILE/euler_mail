@@ -107,3 +107,53 @@ def substitute_inline_cids(html_body: str, specs: List[Dict]) -> str:
             html_body = html_body.replace(f"src='{name}'", f"src='cid:{cid}'")
             html_body = html_body.replace(name, f"cid:{cid}")
     return html_body
+
+
+def resolve_absolute_inline_images(html_body: str) -> tuple[str, list[tuple[Path, str]]]:
+    """
+    Find all absolute Windows paths inside <img src="..."> tags or [IMAGE: ...] tags in the HTML.
+    For each, verify the file exists (raise FileNotFoundError if not),
+    generate a unique CID, replace the tag/src with cid:..., and return the
+    modified HTML and a list of (Path, cid) tuples.
+    """
+    import re
+    import hashlib
+    
+    inline_images: list[tuple[Path, str]] = []
+    
+    # Matches:
+    # 1. src="C:\..." or src='C:\...'
+    # 2. [IMAGE: C:\...] or [IMAGE : C:\...]
+    # 3. <img>C:\...</img>
+    pattern = r'(src=(["\'])([a-zA-Z]:\\[^"\']+|[a-zA-Z]:/[^"\']+)\2|\[IMAGE\s*:\s*([a-zA-Z]:\\[^\]]+|[a-zA-Z]:/[^\]]+)\]|<img>\s*([a-zA-Z]:\\[^<]+|[a-zA-Z]:/[^<]+)\s*</img>)'
+    
+    def replacer(match):
+        is_src_format = bool(match.group(2))
+        is_image_bracket = bool(match.group(4))
+        
+        if is_src_format:
+            quote = match.group(2)
+            raw_path = match.group(3)
+        elif is_image_bracket:
+            raw_path = match.group(4).strip()
+        else:
+            raw_path = match.group(5).strip()
+            
+        path_obj = Path(raw_path)
+        if not path_obj.exists():
+            raise FileNotFoundError(f"Inline image not found: {raw_path}")
+            
+        path_hash = hashlib.md5(str(path_obj.absolute()).encode()).hexdigest()[:8]
+        cid = f"img_{path_obj.stem}_{path_hash}"
+        cid = re.sub(r"[^a-zA-Z0-9_\-]", "_", cid)
+        
+        inline_images.append((path_obj, cid))
+        
+        if is_src_format:
+            return f'src={quote}cid:{cid}{quote}'
+        else:
+            # Wrap the [IMAGE: ...] pseudo-tag in a styled HTML image
+            return f'<img src="cid:{cid}" alt="Embedded Image" style="max-width: 100%; height: auto; display: block; margin: 16px auto; border-radius: 8px;">'
+            
+    resolved_html = re.sub(pattern, replacer, html_body)
+    return resolved_html, inline_images

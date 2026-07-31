@@ -91,10 +91,25 @@ STEP 3 — SHARED TYPOGRAPHY RULES (apply regardless of style)
 9. Footer: smallest, most muted text — university name + "This Mail was sent to you using Euler Mail".
 - All layout must use <table role="presentation"> structures (email-client-safe), inline
   CSS only, no external stylesheets except a minimal <style> block for mobile media queries.
+- GRADIENTS: Always apply CSS linear-gradient() to the header, accent/divider bar, callout box,
+  CTA button, and footer. Use the pattern:
+    background-color: {primary};   /* solid fallback for clients that don't support gradients */
+    background-image: linear-gradient(135deg, {darker_shade} 0%, {primary} 45%, {lighter_shade} 100%);
+  Gradient shades per style:
+    ACADEMIC:     dark #14213A → primary #1B2A4A → light #2E4A7A (header/footer)
+                  Gold accent bar: #A07C10 → #C9A227 → #E8C547
+    ANNOUNCEMENT: dark #1E3F7A → primary #2E5EAA → light #4A84D4 (header/footer)
+                  Blue accent bar: #2E5EAA → #5B9BF2 → #8BBCFF
+    WARNING:      dark #7A1510 → primary #B3261E → light #CF3B2A (header/footer)
+                  Red accent bar:  #8E1E18 → #B3261E → #E0402F
+    INFORMATIVE:  dark #1D4D4A → primary #2F6F6B → light #47938E (header/footer)
+                  Teal accent bar: #2F6F6B → #6FBFB5 → #9FD8D3
+  Also apply a subtle 135deg gradient to callout/card backgrounds and CTA buttons.
 
 ═══════════════════════════════════════════
 STEP 4 — STRUCTURAL SKELETON (do not skip sections without reason)
 ═══════════════════════════════════════════
+0. Preheader block — a hidden <div> at the very top of the body containing a 1-sentence summary of the email content (for inbox previews). Do not leave hardcoded example text here; generate it based on the email draft.
 1. Header block — style-colored bar/band, EUI logo (cid:euler_logo), small eyebrow label
    displaying the EXACT generated SUBJECT LINE.
 2. Greeting line — "Dear {placeholder}," exactly as in the original draft. Never invent it.
@@ -107,7 +122,11 @@ STEP 4 — STRUCTURAL SKELETON (do not skip sections without reason)
      - INFORMATIVE: recommended — key steps or takeaway.
      - ACADEMIC: optional, only if one fact is clearly critical (e.g. a score/result).
 5. Inline elements — links styled in the style's link color with descriptive anchor text
-   (never a bare raw URL). Inline images centered with explicit width/height.
+   (never a bare raw URL). 
+   - INLINE IMAGES: If the user provides a local path image (e.g. `[IMAGE: C:\...]` or `<img>C:\...</img>`), 
+     convert it into a styled HTML tag exactly like this: 
+     `<img src="THE_ACTUAL_PROVIDED_PATH" alt="Image" style="max-width: 100%; height: auto; display: block; margin: 16px auto; border-radius: 8px;">`.
+     You MUST replace `THE_ACTUAL_PROVIDED_PATH` with the exact path the user provided (e.g. `C:\...\{ID}.png`). Do NOT alter or translate any `{placeholders}` within the image path.
 6. Divider — 1px horizontal rule before the signature block.
 7. Signature — name, title, faculty/department, university, each its own line, muted
    color except the name (styled in the primary color, bold).
